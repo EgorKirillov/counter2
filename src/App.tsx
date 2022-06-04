@@ -43,19 +43,21 @@ function App() {
         }
     }
     const changeMaxValue = (newMaxValue: number) => {
+        debugger
         if (newMaxValue <= startValue) {
             setErrorMax(true)
             setErrorStart(true)
             setErrorText("incorrect 'MAX' and 'START' value")
             setMaxValue(newMaxValue < 0 ? 0 : startValue)
         } else {
-            if (newMaxValue > startValue && startValue >= 0) {
+            if (startValue >= 0) {
                 setErrorStart(false)
+                setErrorText("press 'set' to confirm setting")
+            } else {
+                setErrorText("incorrect 'START value'")
             }
             setMaxValue(newMaxValue)
-            setErrorText("press 'set' to confirm setting")
             setErrorMax(false)
-
         }
     }
     const applySettings = () => {
