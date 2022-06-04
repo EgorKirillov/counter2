@@ -1,0 +1,108 @@
+.conteiner {
+    border: 2px solid #1976d2;
+    width: 300px;
+    height: 320px;
+    border-radius: 20px;
+    margin-right: 30px;
+    /*background-color: #f0f0f0;*/
+}
+
+.defaultClass {
+    border: 2px solid #1976d2;
+    width: 250px;
+    height: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    border-radius: 20px;
+    /*background-color: #fff;*/
+
+}
+
+.input {
+    /*display: block;*/
+    margin-left: auto;
+    margin-right: auto;
+    /*margin-top: 20px;*/
+    width: 70%;
+    /*padding: 5px;*/
+    margin-top: 20px;
+
+    /*background-color: cadetblue;*/
+}
+.input1 {
+    /*background-color: #eee;*/
+}
+.buttonGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #1976d2;
+    width: 250px;
+    height: 60px;
+    border-radius: 20px;
+}
+
+/*
+.conteiner {
+    border: 3px solid greenyellow; !*#35f;*!
+    width: 300px;
+    height: 320px;
+    border-radius: 10px;
+    display: inline-block;
+
+}
+
+.buttonConteiner {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: stretch;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid #35f;
+    width: 250px;
+    height: 100px;
+    border-radius: 10px;
+
+}
+
+.red {
+    color: red;
+}
+
+.defaultClass {
+    border: 3px solid #35f;
+    width: 250px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    border-radius: 10px;
+    font-size: 80px;
+    font-weight: 600
+}
+
+.buttonClass {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    appearance: none;
+    border: 3px solid #35f ;
+    border-radius: 10px;
+    background: green;
+    color: #fff;
+    padding: 20px 22px;
+    font-size: 30px;
+    margin-left: 10px;
+    font-weight: 600
+}
+.buttonClass:disabled {
+    color: dimgray;
+    border: 3px solid cornflowerblue ;
+}
+*/

@@ -1,16 +1,63 @@
+
 .conteiner {
-    border: 3px solid greenyellow; /*#35f;*/
+    border: 2px solid #1976d2;
+    width: 300px;
+    height: 320px;
+    border-radius: 20px;
+    margin-right: 30px;
+ }
+.defaultClass {
+    border: 2px solid #1976d2;
+    width: 250px;
+    height: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    border-radius: 20px;
+}
+.error {
+    border: 2px solid #1976d2;
+    width: 250px;
+    height: 180px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1976d2;
+}
+
+.buttonGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #1976d2;
+    width: 250px;
+    height: 60px;
+    border-radius: 20px;
+}
+
+
+/*
+.conteiner {
+    border: 3px solid greenyellow; !*#35f;*!
     width: 300px;
     height: 320px;
     border-radius: 10px;
-
+    display: inline-block;
 }
 
 .buttonConteiner {
 
     display: flex;
-    flex-direction: row;
-    justify-content: stretch;
+
+    justify-content: space-evenly;
+    align-items: center;
     margin-top: 5px;
     margin-left: auto;
     margin-right: auto;
@@ -18,6 +65,18 @@
     width: 250px;
     height: 100px;
     border-radius: 10px;
+
+}
+.error {
+    border: 3px solid #35f;
+    width: 250px;
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
 
 }
 
@@ -35,6 +94,7 @@
     border-radius: 10px;
     font-size: 80px;
     font-weight: 600
+
 }
 
 .buttonClass {
@@ -54,3 +114,4 @@
     color: dimgray;
     border: 3px solid cornflowerblue ;
 }
+*/
