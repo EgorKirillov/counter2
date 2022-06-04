@@ -8,9 +8,8 @@ type  PropsType = {
 const CounterValue: React.FC<PropsType> = ({value,className}) => {
     return (
         <div className={className}>
-            {value}
+            <p>{value}</p>
         </div>
-
     );
 };
 

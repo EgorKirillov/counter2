@@ -1,7 +1,6 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent} from 'react';
 import s from './SettingCounter.module.css'
 import SettingsIcon from '@mui/icons-material/Settings';
-import MyButton from "../MyButton";
 import {Button, TextField} from "@mui/material";
 
 type SettingCounterPropsType = {
@@ -16,11 +15,6 @@ type SettingCounterPropsType = {
 }
 
 export const SettingCounter: React.FC<SettingCounterPropsType> = ({maxValue, startValue, ...props}) => {
-    // const [value, setValue] = useState<number>(0)
-    // const addValue = () => setValue(value + 1)
-    // const resetValue = () => setValue(0)
-    // let classValue = `${s.defaultClass} ${(value === 10) ? s.red : ""}`
-
 
     function onChangeMaxValueHandler(e: ChangeEvent<HTMLInputElement>) {
         if (e.currentTarget) {
@@ -34,13 +28,9 @@ export const SettingCounter: React.FC<SettingCounterPropsType> = ({maxValue, sta
         }
     }
 
-
-    let errorWarning = (props.errorText) ? true : false
     return (
         <div className={s.conteiner}>
-
             <div className={s.defaultClass}>
-
                 <div className={s.input}><TextField
                     key={1}
                     error={props.errorMax}
@@ -67,12 +57,6 @@ export const SettingCounter: React.FC<SettingCounterPropsType> = ({maxValue, sta
                         onChange={onChangeStartValueHandler}
                     /></div>
             </div>
-            {/* <div>
-                <p>max value:</p>
-                <input type="number" value={maxValue} onChange={onChangeMaxValueHandler}/>
-                <p>start value:</p>
-                <input type="number" value={startValue} onChange={onChangeStartValueHandler}/>
-            </div>*/}
 
             <div className={s.buttonGroup}><Button endIcon={<SettingsIcon/>} size={"large"} variant="outlined"
                                                    disabled={props.errorText !== "press 'set' to confirm setting"}

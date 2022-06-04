@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
-
 import './App.css';
 import Counter from "./components/DisplayCounter/Counter";
 import {SettingCounter} from "./components/SettingCounter/SettingCounter";
-import {isBoolean} from "util";
+
 
 function App() {
     let start = (localStorage.getItem("startValue")) ? Number(localStorage.getItem("startValue")) : 0
@@ -13,13 +12,9 @@ function App() {
     const [sendStartValue, setSendStartValue] = useState<number>(start)
     const [sendMaxValue, setSendMaxValue] = useState<number>(max)
     const [value, setValue] = useState<number>(sendStartValue)
-    const [errorText, setErrorText] = useState < "" | "incorrect 'START value'" | "incorrect 'MAX' and 'START' value" | "press 'set' to confirm setting">  ("")
+    const [errorText, setErrorText] = useState<"" | "incorrect 'START value'" | "incorrect 'MAX' and 'START' value" | "press 'set' to confirm setting">("")
     const [errorMax, setErrorMax] = useState<boolean>(false)
     const [errorStart, setErrorStart] = useState<boolean>(false)
-
-
-    console.log(localStorage.getItem("startValue"))
-    console.log(localStorage.getItem("maxValue"))
 
     const increaseValue = () => {
         setValue(value + 1)
@@ -29,7 +24,6 @@ function App() {
         setValue(sendStartValue)
     }
     const changeStartValue = (newStartValue: number) => {
-
         if (newStartValue < 0) {
             setErrorStart(true)
             setErrorText("incorrect 'START value'")
@@ -64,7 +58,6 @@ function App() {
 
         }
     }
-
     const applySettings = () => {
         localStorage.setItem("startValue", JSON.stringify(startValue))
         localStorage.setItem("maxValue", JSON.stringify(maxValue))
@@ -78,7 +71,6 @@ function App() {
 
     return (
         <div className="App">
-
             <SettingCounter
                 startValue={startValue}
                 maxValue={maxValue}
@@ -88,9 +80,7 @@ function App() {
                 errorText={errorText}
                 errorStart={errorStart}
                 errorMax={errorMax}
-
             />
-
             <Counter
                 key={1}
                 currentValue={value}
