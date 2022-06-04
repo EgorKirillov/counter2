@@ -1,6 +1,6 @@
 import React from 'react';
-import s from './Counter.module.css'
-import CounterValue from "./counterValue";
+import s from './CounterDisplayV1.module.css'
+import CounterValueV1 from "./counterValueV1";
 import {Button} from "@mui/material";
 
 type CounterPropsType = {
@@ -23,8 +23,8 @@ const Counter = (props: CounterPropsType) => {
         <div className={s.conteiner}>
             <div className={s.defaultClass}>
                 {(!props.errorText)
-                    ? <CounterValue className={number} value={props.currentValue}/>
-                    : <CounterValue className={errorClass} value={props.errorText}/>
+                    ? <CounterValueV1 className={number} value={props.currentValue}/>
+                    : <CounterValueV1 className={errorClass} value={props.errorText}/>
                 }
             </div>
 

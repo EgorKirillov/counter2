@@ -1,5 +1,5 @@
 import React, {ChangeEvent} from 'react';
-import s from './SettingCounter.module.css'
+import s from './SettingCounterV2.module.css'
 import SettingsIcon from '@mui/icons-material/Settings';
 import {Button, TextField} from "@mui/material";
 
@@ -14,7 +14,7 @@ type SettingCounterPropsType = {
     errorStart: boolean
 }
 
-export const SettingCounter: React.FC<SettingCounterPropsType> = ({maxValue, startValue, ...props}) => {
+export const SettingCounterV2: React.FC<SettingCounterPropsType> = ({maxValue, startValue, ...props}) => {
 
     function onChangeMaxValueHandler(e: ChangeEvent<HTMLInputElement>) {
         if (e.currentTarget) {
@@ -31,22 +31,25 @@ export const SettingCounter: React.FC<SettingCounterPropsType> = ({maxValue, sta
             props.changeStartValue(newValue)
         }
     }
+let disabledSettingButton:boolean =  (props.errorText !== "") && (props.errorText !== "press 'set' to confirm setting")
 
     return (
         <div className={s.conteiner}>
             <div className={s.defaultClass}>
-                <div className={s.input}><TextField
-                    key={1}
-                    error={props.errorMax}
-                    color="primary"
-                    className={s.input1}
-                    type="number"
-                    value={maxValue}
-                    // helperText="Change max counter value"
-                    label="MAXIMUM(up to 99999):"
-                    onChange={onChangeMaxValueHandler}
-                    focused
-                /></div>
+                <div className={s.input}>
+                    <TextField
+                        key={1}
+                        error={props.errorMax}
+                        color="primary"
+                        className={s.input1}
+                        type="number"
+                        value={maxValue}
+                        // helperText="Change max counter value"
+                        label="MAXIMUM(up to 99999):"
+                        onChange={onChangeMaxValueHandler}
+                        focused
+                    />
+                </div>
                 <div className={s.input}>
                     <TextField
                         key={2}
@@ -59,11 +62,13 @@ export const SettingCounter: React.FC<SettingCounterPropsType> = ({maxValue, sta
                         // helperText="Change start counter value"
                         label="START value:"
                         onChange={onChangeStartValueHandler}
-                    /></div>
+                    />
+                </div>
+                <div>{props.errorText}</div>
             </div>
 
             <div className={s.buttonGroup}><Button endIcon={<SettingsIcon/>} size={"large"} variant="outlined"
-                                                   disabled={props.errorText !== "press 'set' to confirm setting"}
+                                                   disabled={disabledSettingButton}
                                                    onClick={props.applySetting}>set</Button></div>
 
         </div>

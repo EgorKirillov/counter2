@@ -5,7 +5,7 @@ type  PropsType = {
     className:string
 }
 
-const CounterValue: React.FC<PropsType> = ({value,className}) => {
+const CounterValueV1: React.FC<PropsType> = ({value,className}) => {
     return (
         <div className={className}>
             <p>{value}</p>
@@ -13,4 +13,4 @@ const CounterValue: React.FC<PropsType> = ({value,className}) => {
     );
 };
 
-export default CounterValue;
+export default CounterValueV1;
