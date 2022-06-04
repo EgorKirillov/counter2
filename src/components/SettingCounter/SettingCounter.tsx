@@ -18,13 +18,13 @@ export const SettingCounter: React.FC<SettingCounterPropsType> = ({maxValue, sta
 
     function onChangeMaxValueHandler(e: ChangeEvent<HTMLInputElement>) {
         if (e.currentTarget) {
-            props.changeMaxValue(Number(e.currentTarget.value))
+            props.changeMaxValue(Math.floor(Number(e.currentTarget.value)))
         }
     }
 
     function onChangeStartValueHandler(e: ChangeEvent<HTMLInputElement>) {
         if (e.currentTarget) {
-            props.changeStartValue(Number(e.currentTarget.value))
+            props.changeStartValue(Math.floor(Number(e.currentTarget.value)))
         }
     }
 
