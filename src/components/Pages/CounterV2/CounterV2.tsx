@@ -5,7 +5,6 @@ import CounterDisplayV2 from "./DisplayCounter/CounterDisplayV2";
 
 const CounterV2 = () => {
 
-
     let start = (localStorage.getItem("startValue")) ? Number(localStorage.getItem("startValueV2")) : 0
     let max = (localStorage.getItem("maxValue")) ? Number(localStorage.getItem("maxValueV2")) : 5
     const [startValue, setStartValue] = useState<number>(start)

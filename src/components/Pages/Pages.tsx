@@ -7,8 +7,6 @@ import Error404 from './Error404'
 export const PATH = {
     v1: '/v1',
     v2: '/v2',
-
-
 }
 
 function Pages() {
@@ -19,7 +17,6 @@ function Pages() {
                 <Route path={PATH.v1} element={<CounterV1/>}/>
                 <Route path={PATH.v2} element={<CounterV2/>}/>
                 <Route path={'/*'} element={<Error404/>}/>
-
             </Routes>
         </div>
     )
