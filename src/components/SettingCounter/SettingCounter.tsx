@@ -9,7 +9,7 @@ type SettingCounterPropsType = {
     changeMaxValue: (newMaxValue: number) => void
     changeStartValue: (newStartValue: number) => void
     applySetting: () => void
-    errorText:  "" | "incorrect 'START value'" | "incorrect 'MAX' and 'START' value" | "press 'set' to confirm setting"
+    errorText: "" | "incorrect 'START value'" | "incorrect 'MAX' and 'START' value" | "press 'set' to confirm setting"
     errorMax: boolean
     errorStart: boolean
 }
@@ -18,13 +18,17 @@ export const SettingCounter: React.FC<SettingCounterPropsType> = ({maxValue, sta
 
     function onChangeMaxValueHandler(e: ChangeEvent<HTMLInputElement>) {
         if (e.currentTarget) {
-            props.changeMaxValue(Math.floor(Number(e.currentTarget.value)))
+            let newValue = Math.floor(Number(e.currentTarget.value))
+            e.currentTarget.value = ""
+            props.changeMaxValue(newValue)
         }
     }
 
     function onChangeStartValueHandler(e: ChangeEvent<HTMLInputElement>) {
         if (e.currentTarget) {
-            props.changeStartValue(Math.floor(Number(e.currentTarget.value)))
+            let newValue = Math.floor(Number(e.currentTarget.value))
+            e.currentTarget.value = ""
+            props.changeStartValue(newValue)
         }
     }
 
@@ -39,7 +43,7 @@ export const SettingCounter: React.FC<SettingCounterPropsType> = ({maxValue, sta
                     type="number"
                     value={maxValue}
                     // helperText="Change max counter value"
-                    label="MAXIMUM value:"
+                    label="MAXIMUM(up to 99999):"
                     onChange={onChangeMaxValueHandler}
                     focused
                 /></div>
