@@ -44,6 +44,7 @@ function App() {
     }
     const changeMaxValue = (newMaxValue: number) => {
         debugger
+        if (newMaxValue > 99999) {setMaxValue(99999)} else
         if (newMaxValue <= startValue) {
             setErrorMax(true)
             setErrorStart(true)
