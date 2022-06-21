@@ -1,7 +1,7 @@
 import { combineReducers, legacy_createStore as createStore } from "redux"
-import {reducerV3counter} from "../Pages/CounterV3/Reducers/reducerV3counter";
+import reducerV3counter from "../Pages/CounterV3/Reducers/reducerV3counter";
 
-export type CounterV3StateType=ReturnType<typeof rootReducer>
+export type AllCountersStateType=ReturnType<typeof rootReducer>
 
 let rootReducer = combineReducers({
    counterV3:reducerV3counter
