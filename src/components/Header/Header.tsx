@@ -11,7 +11,13 @@ const Header = () => {
             >Counter V1.0</NavLink>
             <NavLink className={({isActive}) => isActive ? s.linkActive : s.link}
                      to={PATH.v2}
-            >Counter V2.0</NavLink>
+            >Counter V2.0 </NavLink>
+           <NavLink className={({isActive}) => isActive ? s.linkActive : s.link}
+                    to={PATH.v3}
+           >Counter V1.0  with Reducer</NavLink>
+           <NavLink className={({isActive}) => isActive ? s.linkActive : s.link}
+                    to={PATH.v4}
+           >Counter V2.0  with Reducer</NavLink>
             <div className={s.block}> </div>
         </div>
     );

@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './CounterDisplayV1.module.css'
-import CounterValueV1 from "./counterValueV1";
+import CounterValueV1 from "./CounterValueV1";
 import {Button} from "@mui/material";
 
 type CounterPropsType = {
