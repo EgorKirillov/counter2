@@ -9,7 +9,7 @@ type SettingCounterPropsType = {
     changeMaxValue: (newMaxValue: number) => void
     changeStartValue: (newStartValue: number) => void
     applySetting: () => void
-    errorText: "" | "incorrect 'START value'" | "incorrect 'MAX' and 'START' value" | "press 'set' to confirm setting"
+    errorText: string
     errorMax: boolean
     errorStart: boolean
 }
@@ -31,7 +31,7 @@ export const SettingCounterV4: React.FC<SettingCounterPropsType> = ({maxValue, s
             props.changeStartValue(newValue)
         }
     }
-let disabledSettingButton:boolean =  (props.errorText !== "") && (props.errorText !== "press 'set' to confirm setting")
+let disabledSettingButton:boolean =  (props.errorText !== "")
 
     return (
         <div className={s.conteiner}>

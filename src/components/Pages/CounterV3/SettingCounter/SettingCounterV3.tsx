@@ -20,6 +20,7 @@ export const SettingCounterV3: React.FC<SettingCounterPropsType> = ({maxValue, s
    function onChangeMaxValueHandler(e: ChangeEvent<HTMLInputElement>) {
       if (e.currentTarget) {
          let newValue = Math.floor(Number(e.currentTarget.value))
+         e.currentTarget.value=""
          props.changeMaxValue(newValue)
       }
    }
@@ -27,12 +28,13 @@ export const SettingCounterV3: React.FC<SettingCounterPropsType> = ({maxValue, s
    function onChangeStartValueHandler(e: ChangeEvent<HTMLInputElement>) {
       if (e.currentTarget) {
          let newValue = Math.floor(Number(e.currentTarget.value))
+         e.currentTarget.value=""
          props.changeStartValue(newValue)
       }
    }
-   
-   // const errorMax = true
-   // const errorStart = true
+   const disabledButton:boolean = props.errorText !== "press 'set' to confirm setting" && props.errorText !== ""
+    const errorMax:boolean =  (props.errorText === "incorrect 'MAX' and 'START' value" || props.errorText === "incorrect 'MAX value'")
+    const errorStart:boolean = (props.errorText === "incorrect 'MAX' and 'START' value" || props.errorText === "incorrect 'START value'")
    
    return (
      <div className={s.conteiner}>
@@ -40,7 +42,7 @@ export const SettingCounterV3: React.FC<SettingCounterPropsType> = ({maxValue, s
            <div className={s.input}>
               <TextField
                 key={1}
-                // error={errorMax}
+                error={errorMax}
                 color="primary"
                 className={s.input1}
                 type="number"
@@ -53,7 +55,7 @@ export const SettingCounterV3: React.FC<SettingCounterPropsType> = ({maxValue, s
            <div className={s.input}>
               <TextField
                 key={2}
-                // error={errorStart}
+                error={errorStart}
                 // className={s.input}
                 type={"number"}
                 value={startValue}
@@ -65,9 +67,11 @@ export const SettingCounterV3: React.FC<SettingCounterPropsType> = ({maxValue, s
               /></div>
         </div>
         
-        <div className={s.buttonGroup}><Button endIcon={<SettingsIcon/>} size={"large"} variant="outlined"
-                                               disabled={props.errorText !== "press 'set' to confirm setting"}
-                                               onClick={props.applySetting}>set</Button></div>
+        <div className={s.buttonGroup}>
+           <Button endIcon={<SettingsIcon/>} size={"large"} variant="outlined"
+                   disabled={disabledButton}
+                   onClick={props.applySetting}>set</Button>
+        </div>
      
      </div>
    );

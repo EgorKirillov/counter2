@@ -1,8 +1,8 @@
-import {AllCountersStateType} from "../../../redux_store/store";
 
 export type ErrorType =
   ""
   | "incorrect 'START value'"
+  | "incorrect 'MAX value'"
   | "incorrect 'MAX' and 'START' value"
   | "press 'set' to confirm setting"
   | "error"
@@ -38,6 +38,9 @@ type SetMinValueAT = {
    type: "SET-MIN-VALUE"
    value: number
 }
+type SetMinMaxValueAT = {
+   type: "SET-MIN-MAX-VALUE"
+}
 type ChangeErrorMessageAT = {
    type: "CHANGE-ERROR-MESSAGE"
    error: ErrorType
@@ -49,6 +52,7 @@ type ActionType =
   | ReturnType<typeof ResetCurrentValueAC>
   | ReturnType<typeof SetMaxValueAC>
   | ReturnType<typeof SetMinValueAC>
+  | ReturnType<typeof SetMinMaxValueAC>
   | ReturnType<typeof ChangeErrorMessageAC>
 
 // ChangeMaxValueAT
@@ -57,6 +61,7 @@ type ActionType =
 // | ResetCurrentValueAT
 // | SetMaxValueAT
 // | SetMinValueAT
+// |SetMinMaxValueAT
 // | ChangeErrorMessageAT
 //////////////////////
 export const ChangeMaxValueAC = (value: number) => ({type: "CHANGE-MAX-VALUE" as const, value})
@@ -65,13 +70,14 @@ export const ChangeCurrentValueAC = (value: number) => ({type: "CHANGE-CURRENT-V
 export const ResetCurrentValueAC = () => ({type: "RESET-CURRENT-VALUE" as const})
 export const SetMaxValueAC = () => ({type: "SET-MAX-VALUE" as const})
 export const SetMinValueAC = () => ({type: "SET-MIN-VALUE" as const})
+export const SetMinMaxValueAC = () => ({type: "SET-MIN-MAX-VALUE" as const})
 export const ChangeErrorMessageAC = (errorText: ErrorType) => ({type: "CHANGE-ERROR-MESSAGE" as const, errorText})
 ////////////////////
 
 
 export const initState: StateType = {
-   maxValue: 10,
-   currentMaxValue: 10,
+   maxValue: 3,
+   currentMaxValue: 3,
    minValue: 0,
    currentMinValue: 0,
    currentValue: 0,
@@ -79,32 +85,29 @@ export const initState: StateType = {
 }
 
 
-const reducerV3counter = (state: StateType= initState , action: ActionType): StateType => {
+const reducerV3counter = (state: StateType = initState, action: ActionType): StateType => {
    let stateCopy = {...state}
    switch (action.type) {
       case "CHANGE-MAX-VALUE":
-         stateCopy = {...state, currentMaxValue: action.value, errorText: "" as ErrorType}
-         if (state.currentMaxValue > 99999) {
-            return stateCopy = {...stateCopy, errorText: "error"}
-         } else if (state.currentMinValue >= state.currentMaxValue) {
-            return stateCopy = {...stateCopy, errorText: "incorrect 'MAX' and 'START' value"}
-         } else
-            return stateCopy
-      
-      
-      case "SET-MAX-VALUE":
-         return {...state, maxValue: state.currentMaxValue}
+         stateCopy.currentMaxValue=0
+         stateCopy = {...state, currentMaxValue: action.value, errorText: "press 'set' to confirm setting" as ErrorType}
+         if (action.value > 99999) {
+            stateCopy = {...stateCopy, errorText: "incorrect 'MAX value'" as ErrorType, currentMaxValue: 100000}
+         } else if (state.currentMinValue >= action.value) {
+            stateCopy = {...stateCopy, errorText: "incorrect 'MAX' and 'START' value" as ErrorType}
+         }
+         return stateCopy
       case "CHANGE-MIN-VALUE":
-         stateCopy = {...state, currentMinValue: action.value, errorText: "" as ErrorType}
-         if (state.currentMinValue < 0 || state.currentMinValue > 99999) {
+         stateCopy = {...state, currentMinValue: action.value, errorText: "press 'set' to confirm setting" as ErrorType}
+         if (action.value < 0 || action.value > 99999) {
             stateCopy = {...stateCopy, errorText: "incorrect 'START value'"}
          }
-         if (state.currentMinValue >= state.currentMaxValue) {
+         if (action.value >= state.currentMaxValue) {
             stateCopy = {...stateCopy, errorText: "incorrect 'MAX' and 'START' value"}
          }
          return stateCopy
-      case   "SET-MIN-VALUE"  :
-         return {...state, minValue: state.currentMinValue}
+      case   "SET-MIN-MAX-VALUE"  :
+         return {...state, minValue: state.currentMinValue, maxValue: state.currentMaxValue, errorText:"", currentValue:state.currentMinValue}
       case      "CHANGE-CURRENT-VALUE"      :
          return {...state, currentValue: action.value}
       case      "RESET-CURRENT-VALUE"      :

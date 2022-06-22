@@ -10,7 +10,7 @@ type CounterPropsType = {
     increaseValue: () => void
     resetValue: () => void
     goToSetting: () => void
-    errorText: "" | "incorrect 'START value'" | "incorrect 'MAX' and 'START' value" | "press 'set' to confirm setting"
+    errorText: string
 }
 
 const CounterDisplayV4 = (props: CounterPropsType) => {

@@ -17,15 +17,12 @@ import {MyPostPropsFromConteinerType} from "./CounterConteinerV3";
 //    changeCurrentValue: (value: number) => void
 //    setMaxValue: () => void
 //    setMinValue: () => void
+//    setMinMaxValue: () => void
 //    changeErrorMessage: (error:ErrorType) => void
 // }
 
 export const CounterV3 = (props: MyPostPropsFromConteinerType) => {
-   console.log(props)
-   const applySettings = () => {
-      props.setMaxValue()
-      props.setMinValue()
-   }
+
    return (
      <div className={s.AppV1}>
         <SettingCounterV3
@@ -33,7 +30,7 @@ export const CounterV3 = (props: MyPostPropsFromConteinerType) => {
           maxValue={props.currentMaxValue}
           changeMaxValue={props.changeMaxValue}
           changeStartValue={props.changeMinValue}
-          applySetting={applySettings}
+          applySetting={props.setMinMaxValue}
           errorText={props.errorText}
         
         />
