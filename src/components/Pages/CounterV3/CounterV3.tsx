@@ -2,7 +2,7 @@ import React  from 'react';
 import {SettingCounterV3} from "./SettingCounter/SettingCounterV3";
 import s from "./CounterV3.module.css"
 import {Counter} from './DisplayCounter/CounterDisplayV3';
-import {MyPostPropsFromConteinerType} from "./CounterConteinerV3";
+import {MyPostPropsFromConteinerType} from "./CounterContainerV3";
 
 
 // type CounterV3propsType = { // =MyPostPropsFromConteinerType

@@ -7,8 +7,8 @@ import s from "./CounterV1.module.css"
 
 const CounterV1 = () => {
 
-    let start = (localStorage.getItem("startValue")) ? Number(localStorage.getItem("startValueV1")) : 0
-    let max = (localStorage.getItem("maxValue")) ? Number(localStorage.getItem("maxValueV1")) : 5
+    let start = (localStorage.getItem("startValueV1")) ? Number(localStorage.getItem("startValueV1")) : 0
+    let max = (localStorage.getItem("maxValueV1")) ? Number(localStorage.getItem("maxValueV1")) : 5
     const [startValue, setStartValue] = useState<number>(start)
     const [maxValue, setMaxValue] = useState<number>(max)
     const [sendStartValue, setSendStartValue] = useState<number>(start)

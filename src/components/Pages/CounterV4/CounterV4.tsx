@@ -3,7 +3,7 @@ import s from "./CounterV4.module.css";
 
 import CounterDisplayV4 from "./DisplayCounter/CounterDisplayV4";
 import { SettingCounterV4 } from './SettingCounter/SettingCounterV4';
-import {MyPostPropsFromConteinerType} from "./CounterConteinerV4";
+import {MyPostPropsFromConteinerType} from "./CounterContainerV4";
 
 const CounterV4 = (props: MyPostPropsFromConteinerType) => {
 

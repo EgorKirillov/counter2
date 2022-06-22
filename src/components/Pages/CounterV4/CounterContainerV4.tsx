@@ -50,4 +50,4 @@ const mapDispatchToProps = (dispatch: Dispatch): MapDispatchToProps => {// impor
       resetValue: () => dispatch(ResetCurrentValueAC()),
    }
 }
-export const CounterConteinerV4 = connect(mapStateToProps, mapDispatchToProps)(CounterV4)
+export const CounterContainerV4 = connect(mapStateToProps, mapDispatchToProps)(CounterV4)
