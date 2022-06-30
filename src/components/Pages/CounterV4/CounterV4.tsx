@@ -11,7 +11,7 @@ const CounterV4 = (props: MyPostPropsFromConteinerType) => {
     const onClickIncValue = () => {
         props.changeCurrentValue(props.currentValue+1)
     }
-
+// commit from notebook
     return (
 
         <div className={s.AppV2}>
